@@ -1,2 +1,6 @@
-# Auto detect text files and perform LF normalization
+# Auto-convert line endings for text files
 * text=auto
+
+# Keep specific files with LF endings
+*.sh text eol=lf
+*.java text eol=lf
