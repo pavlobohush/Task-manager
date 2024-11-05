@@ -1,9 +1,11 @@
 package com.store.onlinestore.model;
 
+import lombok.Data;
 import jakarta.persistence.*;
 import java.time.LocalDate;
 
 @Entity
+@Data
 public class Task {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

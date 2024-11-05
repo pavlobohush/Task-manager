@@ -1,8 +1,10 @@
 package com.store.onlinestore.model;
 
+import lombok.Data;
 import jakarta.persistence.*;
 import java.util.List;
 
+@Data
 @Entity
 public class Project {
     @Id
