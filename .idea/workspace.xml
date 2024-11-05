@@ -4,12 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="51625606-7dfa-442a-814e-80bf89a0450f" name="Changes" comment="Conflict resolved">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="51625606-7dfa-442a-814e-80bf89a0450f" name="Changes" comment="Add Maven support and refactor Spring Boot setup&#10;&#10;Removed old Main.java and added a structured Spring Boot setup in new directories. Introduced pom.xml to manage dependencies and project configuration. Updated .gitignore rules and adjusted IntelliJ project files accordingly.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Online-Store.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Online-Store.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/onlinestore/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/store/onlinestore/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,8 +52,13 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.Main.executor": "Run",
+    "Application.com.store.onlinestore.Main.executor": "Run",
+    "JUnit.com.store.onlinestore in Online-Store.executor": "Run",
+    "Maven.online-store [clean].executor": "Run",
+    "Maven.online-store [test].executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "develop",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "project.structure.last.edited": "Modules",
@@ -64,6 +67,41 @@
     "settings.editor.selected.configurable": "reference.settings.project.maven.importing"
   }
 }]]></component>
+  <component name="RunManager" selected="JUnit.com.store.onlinestore in Online-Store">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.onlinestore.Main" />
+      <module name="Online-Store" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.onlinestore.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="com.store.onlinestore in Online-Store" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Online-Store" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.store.onlinestore.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.store.onlinestore" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.com.store.onlinestore in Online-Store" />
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -81,7 +119,15 @@
       <option name="project" value="LOCAL" />
       <updated>1729724722652</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Add Maven support and refactor Spring Boot setup&#10;&#10;Removed old Main.java and added a structured Spring Boot setup in new directories. Introduced pom.xml to manage dependencies and project configuration. Updated .gitignore rules and adjusted IntelliJ project files accordingly.">
+      <option name="closed" value="true" />
+      <created>1729891156816</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1729891156816</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -97,6 +143,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Conflict resolved" />
-    <option name="LAST_COMMIT_MESSAGE" value="Conflict resolved" />
+    <MESSAGE value="Add Maven support and refactor Spring Boot setup&#10;&#10;Removed old Main.java and added a structured Spring Boot setup in new directories. Introduced pom.xml to manage dependencies and project configuration. Updated .gitignore rules and adjusted IntelliJ project files accordingly." />
+    <option name="LAST_COMMIT_MESSAGE" value="Add Maven support and refactor Spring Boot setup&#10;&#10;Removed old Main.java and added a structured Spring Boot setup in new directories. Introduced pom.xml to manage dependencies and project configuration. Updated .gitignore rules and adjusted IntelliJ project files accordingly." />
   </component>
 </project>
