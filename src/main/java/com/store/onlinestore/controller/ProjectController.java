@@ -20,7 +20,7 @@ public class ProjectController {
 
     @GetMapping("/{id}")
     public Project getProjectById(@PathVariable Long id) {
-        return projectService.getProjectById(id).orElseThrow(() -> new RuntimeException("Project not found"));
+        return projectService.getProjectById(id);
     }
 
     @PostMapping

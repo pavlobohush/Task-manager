@@ -20,7 +20,7 @@ public class TaskController {
 
     @GetMapping("/{id}")
     public Task getTaskById(@PathVariable Long id) {
-        return taskService.getTaskById(id).orElseThrow(() -> new RuntimeException("Task not found"));
+        return taskService.getTaskById(id);
     }
 
     @PostMapping

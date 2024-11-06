@@ -20,7 +20,7 @@ public class UserController {
 
     @GetMapping("/{id}")
     public User getUserById(@PathVariable Long id) {
-        return userService.getUserById(id).orElseThrow(() -> new RuntimeException("User not found"));
+        return userService.getUserById(id);
     }
 
     @PostMapping

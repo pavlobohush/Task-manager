@@ -4,9 +4,8 @@ import com.store.onlinestore.model.Project;
 import com.store.onlinestore.repository.ProjectRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
+import jakarta.persistence.*;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class ProjectService {
@@ -17,8 +16,9 @@ public class ProjectService {
         return projectRepository.findAll();
     }
 
-    public Optional<Project> getProjectById(Long id) {
-        return projectRepository.findById(id);
+    public Project getProjectById(Long id) {
+        return projectRepository.findById(id)
+                .orElseThrow(() -> new EntityNotFoundException("Project not found with id " + id));
     }
 
     public Project createProject(Project project) {
@@ -26,18 +26,16 @@ public class ProjectService {
     }
 
     public Project updateProject(Long id, Project projectDetails) {
-        Optional<Project> existingProject = projectRepository.findById(id);
-        if (existingProject.isPresent()) {
-            Project project = existingProject.get();
-            project.setName(projectDetails.getName());
-            project.setDescription(projectDetails.getDescription());
-            return projectRepository.save(project);
-        } else {
-            throw new RuntimeException("Project not found with id " + id);
-        }
+        Project project = projectRepository.findById(id)
+                .orElseThrow(() -> new EntityNotFoundException("Project not found with id " + id));
+        project.setName(projectDetails.getName());
+        project.setDescription(projectDetails.getDescription());
+        return projectRepository.save(project);
     }
 
     public void deleteProject(Long id) {
-        projectRepository.deleteById(id);
+        Project project = projectRepository.findById(id)
+                .orElseThrow(() -> new EntityNotFoundException("Project not found with id " + id));
+        projectRepository.delete(project);
     }
 }

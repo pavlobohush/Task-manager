@@ -6,6 +6,14 @@
   <component name="ChangeListManager">
     <list default="true" id="51625606-7dfa-442a-814e-80bf89a0450f" name="Changes" comment="Services are created">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/store/onlinestore/controller/ProjectController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/store/onlinestore/controller/ProjectController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/store/onlinestore/controller/TaskController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/store/onlinestore/controller/TaskController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/store/onlinestore/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/store/onlinestore/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/store/onlinestore/exception/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/store/onlinestore/exception/GlobalExceptionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/store/onlinestore/service/ProjectService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/store/onlinestore/service/ProjectService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/store/onlinestore/service/TaskService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/store/onlinestore/service/TaskService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/store/onlinestore/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/store/onlinestore/service/UserService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,16 +70,29 @@
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices"
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
 }]]></component>
-  <component name="RunManager" selected="JUnit.com.store.onlinestore in Online-Store">
+  <component name="RunManager" selected="Application.com.store.onlinestore.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.onlinestore.Main" />
       <module name="Online-Store" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.example.onlinestore.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="com.store.onlinestore.Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.store.onlinestore.Main" />
+      <module name="Online-Store" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.store.onlinestore.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -95,6 +116,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.com.store.onlinestore.Main" />
         <item itemvalue="JUnit.com.store.onlinestore in Online-Store" />
         <item itemvalue="Application.Main" />
       </list>
