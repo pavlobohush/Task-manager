@@ -4,13 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="51625606-7dfa-442a-814e-80bf89a0450f" name="Changes" comment="Add Maven support and refactor Spring Boot setup&#10;&#10;Removed old Main.java and added a structured Spring Boot setup in new directories. Introduced pom.xml to manage dependencies and project configuration. Updated .gitignore rules and adjusted IntelliJ project files accordingly.">
+    <list default="true" id="51625606-7dfa-442a-814e-80bf89a0450f" name="Changes" comment="Services are created">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/store/onlinestore/model/Project.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/store/onlinestore/model/Project.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/store/onlinestore/model/Task.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/store/onlinestore/model/Task.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/store/onlinestore/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/store/onlinestore/model/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/store/onlinestore/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/store/onlinestore/repository/UserRepository.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,7 +35,7 @@
   }
 }</component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="CurrentFile" />
+    <option name="selectedTabId" value="DEPENDENCY_CHECKER_PROBLEMS_TAB" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 3
@@ -130,7 +125,23 @@
       <option name="project" value="LOCAL" />
       <updated>1729891156816</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Lombok is imported to automatically create getters and setters">
+      <option name="closed" value="true" />
+      <created>1730832897156</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1730832897156</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Services are created">
+      <option name="closed" value="true" />
+      <created>1730832944263</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1730832944263</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -148,6 +159,8 @@
     <MESSAGE value="Conflict resolved" />
     <MESSAGE value="Add Maven support and refactor Spring Boot setup&#10;&#10;Removed old Main.java and added a structured Spring Boot setup in new directories. Introduced pom.xml to manage dependencies and project configuration. Updated .gitignore rules and adjusted IntelliJ project files accordingly." />
     <MESSAGE value="Repositories created" />
-    <option name="LAST_COMMIT_MESSAGE" value="" />
+    <MESSAGE value="Lombok is imported to automatically create getters and setters" />
+    <MESSAGE value="Services are created" />
+    <option name="LAST_COMMIT_MESSAGE" value="Services are created" />
   </component>
 </project>
