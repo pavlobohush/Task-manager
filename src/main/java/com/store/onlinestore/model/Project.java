@@ -4,8 +4,9 @@ import lombok.Data;
 import jakarta.persistence.*;
 import java.util.List;
 
-@Data
 @Entity
+@Table(name = "projects")
+@Data
 public class Project {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
