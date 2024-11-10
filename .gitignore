@@ -29,6 +29,7 @@ hs_err_pid*
 out/
 artifacts/
 target/
+idea/
 
 # Maven
 pom.xml.tag

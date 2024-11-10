@@ -5,10 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="51625606-7dfa-442a-814e-80bf89a0450f" name="Changes" comment="Services are created">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/store/onlinestore/model/Project.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/store/onlinestore/model/Project.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/store/onlinestore/model/Task.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/store/onlinestore/model/Task.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/store/onlinestore/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/store/onlinestore/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/store/onlinestore/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/store/onlinestore/repository/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/store/onlinestore/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/store/onlinestore/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -177,6 +179,7 @@
     <MESSAGE value="Add Maven support and refactor Spring Boot setup&#10;&#10;Removed old Main.java and added a structured Spring Boot setup in new directories. Introduced pom.xml to manage dependencies and project configuration. Updated .gitignore rules and adjusted IntelliJ project files accordingly." />
     <MESSAGE value="Repositories created" />
     <MESSAGE value="Lombok is imported to automatically create getters and setters" />
+    <MESSAGE value="Table names changed" />
     <MESSAGE value="Services are created" />
     <option name="LAST_COMMIT_MESSAGE" value="Services are created" />
   </component>
