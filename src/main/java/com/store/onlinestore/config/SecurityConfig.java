@@ -30,6 +30,8 @@ public class SecurityConfig {
                 .authorizeHttpRequests(authorize -> authorize
                         .requestMatchers(HttpMethod.GET, "/users/**", "/projects/**", "/tasks/**").permitAll()
                         .requestMatchers(HttpMethod.POST, "/users/**", "/projects/**", "/tasks/**").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.PUT, "/users/**", "/projects/**", "/tasks/**").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.DELETE, "/users/**", "/projects/**", "/tasks/**").hasRole("ADMIN")
                         .anyRequest().authenticated()
                 )
                 .httpBasic(withDefaults())
