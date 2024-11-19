@@ -19,11 +19,11 @@ public class Task {
     private String priority;
 
     @ManyToOne
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
     @ManyToOne
-    @JoinColumn(name = "project_id")
+    @JoinColumn(name = "project_id, nullable = false")
     private Project project;
 
 }

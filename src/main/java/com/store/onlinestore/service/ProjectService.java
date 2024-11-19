@@ -2,15 +2,17 @@ package com.store.onlinestore.service;
 
 import com.store.onlinestore.model.Project;
 import com.store.onlinestore.repository.ProjectRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import jakarta.persistence.*;
 import java.util.List;
 
 @Service
 public class ProjectService {
-    @Autowired
-    private ProjectRepository projectRepository;
+    private final ProjectRepository projectRepository;
+
+    public ProjectService(ProjectRepository projectRepository) {
+        this.projectRepository = projectRepository;
+    }
 
     public List<Project> getAllProjects() {
         return projectRepository.findAll();
@@ -19,6 +21,10 @@ public class ProjectService {
     public Project getProjectById(Long id) {
         return projectRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Project not found with id " + id));
+    }
+
+    public List<Project> getProjectsByUserId(Long userId) {
+        return projectRepository.findByUserId(userId);
     }
 
     public Project createProject(Project project) {

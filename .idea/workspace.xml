@@ -4,10 +4,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="51625606-7dfa-442a-814e-80bf89a0450f" name="Changes" comment="Implement password hashing and role-based access control&#10;&#10;- Added BCrypt password hashing for user passwords in UserService&#10;- Configured role-based access control in SecurityConfig&#10;- Restricted POST requests to resources based on ADMIN role&#10;- Allowed users to access GET requests for public resources">
+    <list default="true" id="51625606-7dfa-442a-814e-80bf89a0450f" name="Changes" comment="Page controller added. Creating tasks through the interface">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Online-Store.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Online-Store.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/store/onlinestore/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/store/onlinestore/config/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/store/onlinestore/controller/PageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/store/onlinestore/controller/PageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/store/onlinestore/controller/ProjectController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/store/onlinestore/controller/ProjectController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/store/onlinestore/controller/TaskController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/store/onlinestore/controller/TaskController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/store/onlinestore/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/store/onlinestore/controller/UserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/store/onlinestore/model/Task.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/store/onlinestore/model/Task.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/store/onlinestore/repository/ProjectRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/store/onlinestore/repository/ProjectRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/store/onlinestore/repository/TaskRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/store/onlinestore/repository/TaskRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/store/onlinestore/service/CustomUserDetailsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/store/onlinestore/service/CustomUserDetailsService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/store/onlinestore/service/ProjectService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/store/onlinestore/service/ProjectService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/store/onlinestore/service/TaskService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/store/onlinestore/service/TaskService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/store/onlinestore/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/store/onlinestore/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/tasks.html" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,6 +51,9 @@
     &quot;accountId&quot;: &quot;b53efd5a-aa77-48f6-bf99-a6e191a27173&quot;
   }
 }</component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/main/resources/templates/base.html" root0="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
   </component>
@@ -50,40 +68,38 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;Application.com.store.onlinestore.Main.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.com.store.onlinestore in Online-Store.executor&quot;: &quot;Run&quot;,
-    &quot;Maven.online-store [clean].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.online-store [test].executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;develop&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Main.executor": "Run",
+    "Application.com.store.onlinestore.Main.executor": "Run",
+    "HTTP Request.All in generated-requests.executor": "Run",
+    "HTTP Request.generated-requests | #2.executor": "Run",
+    "HTTP Request.generated-requests | #3.executor": "Run",
+    "HTTP Request.generated-requests | #4.executor": "Run",
+    "JUnit.com.store.onlinestore in Online-Store.executor": "Run",
+    "Maven.online-store [clean].executor": "Run",
+    "Maven.online-store [test].executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "develop",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "swagger",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Application.com.store.onlinestore.Main">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.example.onlinestore.Main" />
-      <module name="Online-Store" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.example.onlinestore.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="com.store.onlinestore.Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.store.onlinestore.Main" />
-      <module name="Online-Store" />
+      <module name="online-store" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.store.onlinestore.*" />
@@ -94,16 +110,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="com.store.onlinestore in Online-Store" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Online-Store" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.store.onlinestore.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.store.onlinestore" />
-      <option name="TEST_OBJECT" value="package" />
+    <configuration name="All in generated-requests" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http">
+      <method v="2" />
+    </configuration>
+    <configuration name="generated-requests | #2" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" executionIdentifier="#2" index="2" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="generated-requests | #3" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" executionIdentifier="#3" index="3" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="generated-requests | #4" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" executionIdentifier="#4" index="4" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="Main" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="online-store" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.store.onlinestore.Main" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -111,10 +132,20 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.com.store.onlinestore.Main" />
-        <item itemvalue="JUnit.com.store.onlinestore in Online-Store" />
-        <item itemvalue="Application.Main" />
+        <item itemvalue="HTTP Request.generated-requests | #3" />
+        <item itemvalue="HTTP Request.All in generated-requests" />
+        <item itemvalue="HTTP Request.generated-requests | #2" />
+        <item itemvalue="HTTP Request.generated-requests | #4" />
       </list>
     </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-fdfe4dae3a2d-intellij.indexing.shared.core-IU-243.21565.193" />
+        <option value="bundled-js-predefined-d6986cc7102b-e768b9ed790e-JavaScript-IU-243.21565.193" />
+      </set>
+    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -124,6 +155,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1729723088811</updated>
+      <workItem from="1731962707385" duration="428000" />
+      <workItem from="1731963142128" duration="12720000" />
     </task>
     <task id="LOCAL-00001" summary="Conflict resolved">
       <option name="closed" value="true" />
@@ -165,8 +198,19 @@
       <option name="project" value="LOCAL" />
       <updated>1731239642369</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Page controller added. Creating tasks through the interface">
+      <option name="closed" value="true" />
+      <created>1731513877781</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1731513877781</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -187,6 +231,11 @@
     <MESSAGE value="Table names changed" />
     <MESSAGE value="Services are created" />
     <MESSAGE value="Implement password hashing and role-based access control&#10;&#10;- Added BCrypt password hashing for user passwords in UserService&#10;- Configured role-based access control in SecurityConfig&#10;- Restricted POST requests to resources based on ADMIN role&#10;- Allowed users to access GET requests for public resources" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implement password hashing and role-based access control&#10;&#10;- Added BCrypt password hashing for user passwords in UserService&#10;- Configured role-based access control in SecurityConfig&#10;- Restricted POST requests to resources based on ADMIN role&#10;- Allowed users to access GET requests for public resources" />
+    <MESSAGE value="Page controller added. Creating tasks through the interface" />
+    <option name="LAST_COMMIT_MESSAGE" value="Page controller added. Creating tasks through the interface" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
