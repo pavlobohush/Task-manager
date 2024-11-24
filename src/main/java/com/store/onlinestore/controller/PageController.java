@@ -42,18 +42,23 @@ public class PageController {
         return "create_project";
     }
 
-    @GetMapping("/{projectId}/tasks")
-    public String listTasks(@PathVariable Long projectId, Model model) {
-        List<Task> tasks = taskService.getTasksByProjectId(projectId);
-        Project project = projectService.getProjectById(projectId);
+    @GetMapping("/{projectName}/tasks")
+    public String listTasks(@PathVariable String projectName, Model model) {
+        Long currentUserId = userService.getCurrentUserId();
+        Project project = projectService.getProjectByNameAndUserId(projectName, currentUserId);
+        List<Task> tasks = taskService.getTasksByProjectId(project.getId());
         model.addAttribute("project", project);
         model.addAttribute("tasks", tasks);
         return "tasks";
     }
 
-    @GetMapping("/tasks/new")
-    public String createTaskForm(@RequestParam Long projectId, Model model) {
-        model.addAttribute("projectId", projectId);
+
+
+    @GetMapping("/{projectName}/tasks/new")
+    public String createTaskForm(@PathVariable String projectName, Model model) {
+        Long currentUserId = userService.getCurrentUserId();
+        Project project = projectService.getProjectByNameAndUserId(projectName, currentUserId);
+        model.addAttribute("project", project);
         model.addAttribute("task", new Task());
         return "create_task";
     }
@@ -62,10 +67,17 @@ public class PageController {
     public String createProject(@ModelAttribute Project project) {
         Long currentUserId = userService.getCurrentUserId();
         project.setUser(userService.findUserById(currentUserId));
-        Project savedProject = projectService.createProject(project);
-
-
+        projectService.createProject(project);
         return "redirect:/projects";
     }
+
+    @PostMapping("/{projectName}/tasks")
+    public String createTask(@PathVariable String projectName, @ModelAttribute Task task) {
+        Long currentUserId = userService.getCurrentUserId();
+        Project project = projectService.getProjectByNameAndUserId(projectName, currentUserId);
+        taskService.createTask(task, project.getId());
+        return "redirect:/projects/" + projectName + "/tasks";
+    }
+
 
 }

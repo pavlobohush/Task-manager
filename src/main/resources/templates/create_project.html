@@ -12,6 +12,10 @@
         <input type="text" id="name" name="name" th:field="*{name}" required>
     </div>
     <div>
+        <label for="name">Project Description</label>
+        <label for="description"></label><input type="text" id="description" name="description" th:field="*{description}" required>
+    </div>
+    <div>
         <button type="submit" class="btn btn-success">Create</button>
     </div>
 </form>

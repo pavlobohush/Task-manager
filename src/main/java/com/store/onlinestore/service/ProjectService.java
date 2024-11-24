@@ -27,6 +27,12 @@ public class ProjectService {
         return projectRepository.findByUserId(userId);
     }
 
+    public Project getProjectByNameAndUserId(String name, Long userId) {
+        return projectRepository.findByNameAndUserId(name, userId)
+                .orElseThrow(() -> new RuntimeException("Project not found with name: " + name));
+    }
+
+
     public Project createProject(Project project) {
         return projectRepository.save(project);
     }

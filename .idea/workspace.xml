@@ -4,25 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="51625606-7dfa-442a-814e-80bf89a0450f" name="Changes" comment="Page controller added. Creating tasks through the interface">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+    <list default="true" id="51625606-7dfa-442a-814e-80bf89a0450f" name="Changes" comment="Refactor templates and enhance user and project services&#10;&#10;Replaced `tasks.html` with new templates and introduced `base.html` for consistent layout. Added methods to services for handling current user and project-specific queries, transitioning `PageController` and `ProjectController` to constructor-based injection.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Online-Store.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Online-Store.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/store/onlinestore/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/store/onlinestore/config/SecurityConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/store/onlinestore/controller/PageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/store/onlinestore/controller/PageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/store/onlinestore/controller/ProjectController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/store/onlinestore/controller/ProjectController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/store/onlinestore/controller/TaskController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/store/onlinestore/controller/TaskController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/store/onlinestore/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/store/onlinestore/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/store/onlinestore/model/Project.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/store/onlinestore/model/Project.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/store/onlinestore/model/Task.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/store/onlinestore/model/Task.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/store/onlinestore/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/store/onlinestore/model/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/store/onlinestore/repository/ProjectRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/store/onlinestore/repository/ProjectRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/store/onlinestore/repository/TaskRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/store/onlinestore/repository/TaskRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/store/onlinestore/service/CustomUserDetailsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/store/onlinestore/service/CustomUserDetailsService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/store/onlinestore/service/ProjectService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/store/onlinestore/service/ProjectService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/store/onlinestore/service/TaskService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/store/onlinestore/service/TaskService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/store/onlinestore/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/store/onlinestore/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/tasks.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/create_project.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/create_project.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/create_task.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/create_task.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/projects.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/projects.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/tasks.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/tasks.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,34 +61,36 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Main.executor": "Run",
-    "Application.com.store.onlinestore.Main.executor": "Run",
-    "HTTP Request.All in generated-requests.executor": "Run",
-    "HTTP Request.generated-requests | #2.executor": "Run",
-    "HTTP Request.generated-requests | #3.executor": "Run",
-    "HTTP Request.generated-requests | #4.executor": "Run",
-    "JUnit.com.store.onlinestore in Online-Store.executor": "Run",
-    "Maven.online-store [clean].executor": "Run",
-    "Maven.online-store [test].executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "develop",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "swagger",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Application.com.store.onlinestore.Main.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.All in generated-requests.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.generated-requests | #2.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.generated-requests | #3.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.generated-requests | #4.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.com.store.onlinestore in Online-Store.executor&quot;: &quot;Run&quot;,
+    &quot;Maven.online-store [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.online-store [test].executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;develop&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/bougy/IdeaProjects/Online-Store/src/main/resources/templates/create_project.html&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;swagger&quot;,
+    &quot;two.files.diff.last.used.file&quot;: &quot;C:/Users/bougy/IdeaProjects/Online-Store/src/main/resources/templates/create_project.html&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Application.com.store.onlinestore.Main">
     <configuration name="com.store.onlinestore.Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.store.onlinestore.Main" />
@@ -132,10 +127,6 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.com.store.onlinestore.Main" />
-        <item itemvalue="HTTP Request.generated-requests | #3" />
-        <item itemvalue="HTTP Request.All in generated-requests" />
-        <item itemvalue="HTTP Request.generated-requests | #2" />
-        <item itemvalue="HTTP Request.generated-requests | #4" />
       </list>
     </recent_temporary>
   </component>
@@ -156,7 +147,13 @@
       <option name="presentableId" value="Default" />
       <updated>1729723088811</updated>
       <workItem from="1731962707385" duration="428000" />
-      <workItem from="1731963142128" duration="12720000" />
+      <workItem from="1731963142128" duration="16963000" />
+      <workItem from="1732203619348" duration="73000" />
+      <workItem from="1732203699198" duration="7491000" />
+      <workItem from="1732227047304" duration="8796000" />
+      <workItem from="1732372793320" duration="1692000" />
+      <workItem from="1732379486642" duration="9256000" />
+      <workItem from="1732390159337" duration="2721000" />
     </task>
     <task id="LOCAL-00001" summary="Conflict resolved">
       <option name="closed" value="true" />
@@ -206,7 +203,15 @@
       <option name="project" value="LOCAL" />
       <updated>1731513877781</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Refactor templates and enhance user and project services&#10;&#10;Replaced `tasks.html` with new templates and introduced `base.html` for consistent layout. Added methods to services for handling current user and project-specific queries, transitioning `PageController` and `ProjectController` to constructor-based injection.">
+      <option name="closed" value="true" />
+      <created>1731977071924</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1731977071924</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -232,7 +237,14 @@
     <MESSAGE value="Services are created" />
     <MESSAGE value="Implement password hashing and role-based access control&#10;&#10;- Added BCrypt password hashing for user passwords in UserService&#10;- Configured role-based access control in SecurityConfig&#10;- Restricted POST requests to resources based on ADMIN role&#10;- Allowed users to access GET requests for public resources" />
     <MESSAGE value="Page controller added. Creating tasks through the interface" />
-    <option name="LAST_COMMIT_MESSAGE" value="Page controller added. Creating tasks through the interface" />
+    <MESSAGE value="Create base structure for task and project management&#10;&#10;Added templates for tasks and projects, including base template file. Implemented UserService and ProjectService with necessary repository queries. Deleted unused files and updated workspace settings." />
+    <MESSAGE value="Update project structure and templates for new features&#10;&#10;Deleted obsolete templates and configuration files, including .idea/modules.xml and old tasks.html. Added new Thymeleaf templates for base layout, project creation, and tasks, as well as new JavaScript and CSS files for frontend enhancements. Also refactored user and project services to improve code maintainability and added a method for fetching projects by user ID." />
+    <MESSAGE value="Add project and task management templates&#10;&#10;Replaced existing task management templates with new ones for consistent project and task management. Updated UserService and ProjectService with additional methods for retrieving current user ID and user-specific projects. Added JavaScript and CSS for the new UI." />
+    <MESSAGE value="Refactor and enhance template structure&#10;&#10;Replaced individual task and project templates with a base template for consistency. Updated UserService and ProjectService with new methods, and refactored controllers to use constructor injection." />
+    <MESSAGE value=" Add project name-based task management and update templates&#10;&#10;Implemented project name-based methods in ProjectService and updated controllers to use these methods. Enhanced `Project`, `Task`, and `User` models for better data integrity and management, and refactored Thymeleaf templates to improve user interaction and interface consistency." />
+    <MESSAGE value="Add project and task management by name and user&#10;&#10;Introduced methods to fetch projects by name and user ID in `ProjectService` and `ProjectRepository`. Updated `PageController` methods to use project names instead of IDs, ensuring tasks are associated correctly. Enhanced models and templates for better user experience." />
+    <MESSAGE value="Refactor templates and enhance user and project services&#10;&#10;Replaced `tasks.html` with new templates and introduced `base.html` for consistent layout. Added methods to services for handling current user and project-specific queries, transitioning `PageController` and `ProjectController` to constructor-based injection." />
+    <option name="LAST_COMMIT_MESSAGE" value="" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
