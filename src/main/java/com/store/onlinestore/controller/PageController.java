@@ -33,7 +33,7 @@ public class PageController {
         Long currentUserId = userService.getCurrentUserId();
         List<Project> projects = projectService.getProjectsByUserId(currentUserId);
         model.addAttribute("projects", projects);
-        return "projects";
+        return "forward:/projects.html";
     }
 
     @GetMapping("/new")

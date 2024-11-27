@@ -4,18 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="51625606-7dfa-442a-814e-80bf89a0450f" name="Changes" comment="Refactor templates and enhance user and project services&#10;&#10;Replaced `tasks.html` with new templates and introduced `base.html` for consistent layout. Added methods to services for handling current user and project-specific queries, transitioning `PageController` and `ProjectController` to constructor-based injection.">
+    <list default="true" id="51625606-7dfa-442a-814e-80bf89a0450f" name="Changes" comment="feat: Added React and revamped the Projects page&#10;&#10;- Installed and configured React for the project.&#10;- Integrated frontend with backend using Webpack and Babel.&#10;- Implemented React components: ProjectList and ProjectCard to display the project list.&#10;- Added styles for components (ProjectList.css and ProjectCard.css).&#10;- Updated the Projects controller:&#10;  - Added a method to retrieve both created and joined projects for the user.&#10;  - Changed the data handling for the /projects endpoint.&#10;- Redesigned the /projects page:&#10;  - Adjusted layout to split the page into two columns (created projects and joined projects).&#10;  - Added hover animation to project cards for better user interaction.&#10;&#10;All changes have been tested, and the interface works correctly.">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/store/onlinestore/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/store/onlinestore/config/SecurityConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/store/onlinestore/controller/PageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/store/onlinestore/controller/PageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/store/onlinestore/controller/ProjectController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/store/onlinestore/controller/ProjectController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/store/onlinestore/model/Project.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/store/onlinestore/model/Project.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/store/onlinestore/model/Task.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/store/onlinestore/model/Task.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/store/onlinestore/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/store/onlinestore/model/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/store/onlinestore/repository/ProjectRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/store/onlinestore/repository/ProjectRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/store/onlinestore/service/ProjectService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/store/onlinestore/service/ProjectService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/create_project.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/create_project.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/create_task.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/create_task.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/projects.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/projects.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/tasks.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/tasks.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/scripts.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/projects.html" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,6 +27,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="AnnotationType" />
       </list>
     </option>
   </component>
@@ -41,7 +43,7 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/pavlobohush/Online-Store&quot;,
-    &quot;accountId&quot;: &quot;b53efd5a-aa77-48f6-bf99-a6e191a27173&quot;
+    &quot;accountId&quot;: &quot;aa773e45-41e7-4768-83f8-3028c0524fd0&quot;
   }
 }</component>
   <component name="HighlightingSettingsPerFile">
@@ -61,38 +63,48 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;Application.com.store.onlinestore.Main.executor&quot;: &quot;Run&quot;,
-    &quot;HTTP Request.All in generated-requests.executor&quot;: &quot;Run&quot;,
-    &quot;HTTP Request.generated-requests | #2.executor&quot;: &quot;Run&quot;,
-    &quot;HTTP Request.generated-requests | #3.executor&quot;: &quot;Run&quot;,
-    &quot;HTTP Request.generated-requests | #4.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.com.store.onlinestore in Online-Store.executor&quot;: &quot;Run&quot;,
-    &quot;Maven.online-store [clean].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.online-store [test].executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;develop&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/bougy/IdeaProjects/Online-Store/src/main/resources/templates/create_project.html&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;swagger&quot;,
-    &quot;two.files.diff.last.used.file&quot;: &quot;C:/Users/bougy/IdeaProjects/Online-Store/src/main/resources/templates/create_project.html&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
+    "Application.Main.executor": "Run",
+    "Application.com.store.onlinestore.Main.executor": "Run",
+    "HTTP Request.All in generated-requests.executor": "Run",
+    "HTTP Request.generated-requests | #2.executor": "Run",
+    "HTTP Request.generated-requests | #3.executor": "Run",
+    "HTTP Request.generated-requests | #4.executor": "Run",
+    "JUnit.com.store.onlinestore in Online-Store.executor": "Run",
+    "Maven.online-store [clean].executor": "Run",
+    "Maven.online-store [test].executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "develop",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/bougy/IdeaProjects/Online-Store/src/main/resources/templates/create_project.html",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "CodeWithMe",
+    "two.files.diff.last.used.file": "C:/Users/bougy/IdeaProjects/Online-Store/src/main/resources/templates/create_project.html",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.store.onlinestore.model" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\bougy\IdeaProjects\Online-Store\src\main\resources\static" />
+      <recent name="C:\Users\bougy\IdeaProjects\Online-Store\src\main\resources\static\js" />
+    </key>
+  </component>
   <component name="RunManager" selected="Application.com.store.onlinestore.Main">
-    <configuration name="com.store.onlinestore.Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="com.store.onlinestore.Main" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.store.onlinestore.Main" />
       <module name="online-store" />
       <extension name="coverage">
@@ -126,7 +138,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.com.store.onlinestore.Main" />
+        <item itemvalue="HTTP Request.All in generated-requests" />
+        <item itemvalue="HTTP Request.generated-requests | #2" />
       </list>
     </recent_temporary>
   </component>
@@ -153,7 +166,9 @@
       <workItem from="1732227047304" duration="8796000" />
       <workItem from="1732372793320" duration="1692000" />
       <workItem from="1732379486642" duration="9256000" />
-      <workItem from="1732390159337" duration="2721000" />
+      <workItem from="1732390159337" duration="4147000" />
+      <workItem from="1732482443201" duration="17436000" />
+      <workItem from="1732657328836" duration="1628000" />
     </task>
     <task id="LOCAL-00001" summary="Conflict resolved">
       <option name="closed" value="true" />
@@ -211,7 +226,31 @@
       <option name="project" value="LOCAL" />
       <updated>1731977071924</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Add project-specific query methods and update templates&#10;&#10;Implemented methods to fetch projects by name and user ID in `ProjectService` and `ProjectRepository`. Refactored `PageController` to use project names instead of IDs for task management. Enhanced `Project`, `Task`, and `User` models for better data integrity and management, and updated Thymeleaf templates to improve user interaction and interface consistency.">
+      <option name="closed" value="true" />
+      <created>1732407541811</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1732407541811</updated>
+    </task>
+    <task id="LOCAL-00009" summary="feat: Added React and revamped the Projects page&#10;&#10;- Installed and configured React for the project.&#10;- Integrated frontend with backend using Webpack and Babel.&#10;- Implemented React components: ProjectList and ProjectCard to display the project list.&#10;- Added styles for components (ProjectList.css and ProjectCard.css).&#10;- Updated the Projects controller:&#10;  - Added a method to retrieve both created and joined projects for the user.&#10;  - Changed the data handling for the /projects endpoint.&#10;- Redesigned the /projects page:&#10;  - Adjusted layout to split the page into two columns (created projects and joined projects).&#10;  - Added hover animation to project cards for better user interaction.&#10;&#10;All changes have been tested, and the interface works correctly.">
+      <option name="closed" value="true" />
+      <created>1732672014342</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1732672014342</updated>
+    </task>
+    <task id="LOCAL-00010" summary="feat: Added React and revamped the Projects page&#10;&#10;- Installed and configured React for the project.&#10;- Integrated frontend with backend using Webpack and Babel.&#10;- Implemented React components: ProjectList and ProjectCard to display the project list.&#10;- Added styles for components (ProjectList.css and ProjectCard.css).&#10;- Updated the Projects controller:&#10;  - Added a method to retrieve both created and joined projects for the user.&#10;  - Changed the data handling for the /projects endpoint.&#10;- Redesigned the /projects page:&#10;  - Adjusted layout to split the page into two columns (created projects and joined projects).&#10;  - Added hover animation to project cards for better user interaction.&#10;&#10;All changes have been tested, and the interface works correctly.">
+      <option name="closed" value="true" />
+      <created>1732672102870</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1732672102870</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -244,7 +283,10 @@
     <MESSAGE value=" Add project name-based task management and update templates&#10;&#10;Implemented project name-based methods in ProjectService and updated controllers to use these methods. Enhanced `Project`, `Task`, and `User` models for better data integrity and management, and refactored Thymeleaf templates to improve user interaction and interface consistency." />
     <MESSAGE value="Add project and task management by name and user&#10;&#10;Introduced methods to fetch projects by name and user ID in `ProjectService` and `ProjectRepository`. Updated `PageController` methods to use project names instead of IDs, ensuring tasks are associated correctly. Enhanced models and templates for better user experience." />
     <MESSAGE value="Refactor templates and enhance user and project services&#10;&#10;Replaced `tasks.html` with new templates and introduced `base.html` for consistent layout. Added methods to services for handling current user and project-specific queries, transitioning `PageController` and `ProjectController` to constructor-based injection." />
-    <option name="LAST_COMMIT_MESSAGE" value="" />
+    <MESSAGE value="Add project-specific retrieval and task management endpoints&#10;&#10;Introduced a method in `ProjectService` to retrieve projects by name and user ID. Updated `PageController` to utilize project names in task-related endpoints and made various enhancements to models and templates for improved functionality and consistency." />
+    <MESSAGE value="Add project-specific query methods and update templates&#10;&#10;Implemented methods to fetch projects by name and user ID in `ProjectService` and `ProjectRepository`. Refactored `PageController` to use project names instead of IDs for task management. Enhanced `Project`, `Task`, and `User` models for better data integrity and management, and updated Thymeleaf templates to improve user interaction and interface consistency." />
+    <MESSAGE value="feat: Added React and revamped the Projects page&#10;&#10;- Installed and configured React for the project.&#10;- Integrated frontend with backend using Webpack and Babel.&#10;- Implemented React components: ProjectList and ProjectCard to display the project list.&#10;- Added styles for components (ProjectList.css and ProjectCard.css).&#10;- Updated the Projects controller:&#10;  - Added a method to retrieve both created and joined projects for the user.&#10;  - Changed the data handling for the /projects endpoint.&#10;- Redesigned the /projects page:&#10;  - Adjusted layout to split the page into two columns (created projects and joined projects).&#10;  - Added hover animation to project cards for better user interaction.&#10;&#10;All changes have been tested, and the interface works correctly." />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: Added React and revamped the Projects page&#10;&#10;- Installed and configured React for the project.&#10;- Integrated frontend with backend using Webpack and Babel.&#10;- Implemented React components: ProjectList and ProjectCard to display the project list.&#10;- Added styles for components (ProjectList.css and ProjectCard.css).&#10;- Updated the Projects controller:&#10;  - Added a method to retrieve both created and joined projects for the user.&#10;  - Changed the data handling for the /projects endpoint.&#10;- Redesigned the /projects page:&#10;  - Adjusted layout to split the page into two columns (created projects and joined projects).&#10;  - Added hover animation to project cards for better user interaction.&#10;&#10;All changes have been tested, and the interface works correctly." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

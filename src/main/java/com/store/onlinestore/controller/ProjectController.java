@@ -5,6 +5,7 @@ import com.store.onlinestore.service.ProjectService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api/projects")
@@ -16,8 +17,8 @@ public class ProjectController {
     }
 
     @GetMapping
-    public List<Project> getAllProjects() {
-        return projectService.getAllProjects();
+    public Map<String, List<Project>> getProjectsForCurrentUser() {
+        return projectService.getProjectsForCurrentUser();
     }
 
     @GetMapping("/{id}")

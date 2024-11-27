@@ -6,10 +6,10 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.http.HttpMethod;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import static org.springframework.security.config.Customizer.withDefaults;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -29,11 +29,12 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
+
                 .authorizeHttpRequests(authorize -> authorize
-                        .requestMatchers(HttpMethod.GET, "/users/**", "/projects/**", "/tasks/**").permitAll()
-                        .requestMatchers(HttpMethod.POST, "/users/**", "/projects/**", "/tasks/**").hasRole("ADMIN")
-                        .requestMatchers(HttpMethod.PUT, "/users/**", "/projects/**", "/tasks/**").hasRole("ADMIN")
-                        .requestMatchers(HttpMethod.DELETE, "/users/**", "/projects/**", "/tasks/**").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.GET, "/api/projects/**", "/api/tasks/**").permitAll()
+                        .requestMatchers(HttpMethod.POST, "/api/**").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.PUT, "/api/**").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.DELETE, "/api/**").hasRole("ADMIN")
                         .anyRequest().authenticated()
                 )
                 .httpBasic(withDefaults())
