@@ -21,9 +21,9 @@ public class ProjectController {
         return projectService.getProjectsForCurrentUser();
     }
 
-    @GetMapping("/{id}")
-    public List<Project> getProjectsById(@PathVariable Long id) {
-        return projectService.getProjectsByUserId(id);
+    @GetMapping("/{projectId}")
+    public Project getProjectById(@PathVariable Long projectId) {
+        return projectService.getProjectById(projectId);
     }
 
     @PostMapping

@@ -37,8 +37,9 @@ public class ProjectService {
                 .orElseThrow(() -> new RuntimeException("Project not found with name: " + name));
     }
 
-
     public Project createProject(Project project) {
+        Long currentUserId = userService.getCurrentUserId();
+        project.setUser(userService.findUserById(currentUserId));
         return projectRepository.save(project);
     }
 

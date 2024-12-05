@@ -13,7 +13,7 @@ function ProjectColumn({ title, projects, emptyMessage, onCreate }) {
                     </button>
                 )}
             </div>
-            {projects.length > 0 ? (
+            {projects && projects.length > 0 ? (
                 projects.map((project) => (
                     <ProjectCard key={project.id} project={project} />
                 ))

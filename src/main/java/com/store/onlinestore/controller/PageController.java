@@ -27,40 +27,19 @@ public class PageController {
         this.taskService = taskService;
         this.userService = userService;
     }
-
-    @GetMapping
-    public String listProjects(Model model) {
-        Long currentUserId = userService.getCurrentUserId();
-        List<Project> projects = projectService.getProjectsByUserId(currentUserId);
-        model.addAttribute("projects", projects);
+    @GetMapping(value = { "", "/new"})
+    public String serveReactApp() {
         return "forward:/projects.html";
     }
 
-    @GetMapping("/new")
-    public String createProjectForm(Model model) {
-        model.addAttribute("project", new Project());
-        return "create_project";
+    @GetMapping("/{projectId}/tasks")
+    public String serveTasksReactPage(@PathVariable Long projectId) {
+        return "forward:/projects.html";
     }
 
-    @GetMapping("/{projectName}/tasks")
-    public String listTasks(@PathVariable String projectName, Model model) {
-        Long currentUserId = userService.getCurrentUserId();
-        Project project = projectService.getProjectByNameAndUserId(projectName, currentUserId);
-        List<Task> tasks = taskService.getTasksByProjectId(project.getId());
-        model.addAttribute("project", project);
-        model.addAttribute("tasks", tasks);
-        return "tasks";
-    }
-
-
-
-    @GetMapping("/{projectName}/tasks/new")
-    public String createTaskForm(@PathVariable String projectName, Model model) {
-        Long currentUserId = userService.getCurrentUserId();
-        Project project = projectService.getProjectByNameAndUserId(projectName, currentUserId);
-        model.addAttribute("project", project);
-        model.addAttribute("task", new Task());
-        return "create_task";
+    @GetMapping("/{projectId}/tasks/new")
+    public String serveCreateTaskReactPage(@PathVariable Long projectId) {
+        return "forward:/projects.html";
     }
 
     @PostMapping

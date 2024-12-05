@@ -2,6 +2,7 @@ package com.store.onlinestore.controller;
 
 import com.store.onlinestore.model.Task;
 import com.store.onlinestore.service.TaskService;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -27,15 +28,12 @@ public class TaskController {
 
     @GetMapping("/project/{projectId}")
     public List<Task> getTasksByProject(@PathVariable Long projectId) {
-        if (projectId != null) {
-            return taskService.getTasksByProjectId(projectId);
-        }
-        return taskService.getAllTasksForCurrentUser();
+        return taskService.getTasksByProjectId(projectId);
     }
 
     @PostMapping
-    public Task createTask(@RequestBody Task task, @RequestParam Long projectId) {
-        return taskService.createTask(task, projectId);
+    public Task createTask(@RequestBody Task task) {
+        return taskService.createTask(task, task.getProject().getId());
     }
 
     @PutMapping("/{id}")
@@ -44,7 +42,9 @@ public class TaskController {
     }
 
     @DeleteMapping("/{id}")
-    public void deleteTask(@PathVariable Long id) {
+    public ResponseEntity<Void> deleteTask(@PathVariable Long id) {
         taskService.deleteTask(id);
+        return ResponseEntity.noContent().build();
     }
+
 }

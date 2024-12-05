@@ -23,9 +23,13 @@ public class User {
     private String role;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
-    @JsonManagedReference
+    @JsonManagedReference("user-projects")
     private List<Project> projects;
 
     @ManyToMany(mappedBy = "participants")
     private List<Project> joinedProjects;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference("user-tasks")
+    private List<Task> tasks;
 }
