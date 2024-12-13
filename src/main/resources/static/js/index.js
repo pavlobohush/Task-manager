@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 const ProjectList = React.lazy(() => import("./components/ProjectList"));
 const CreateProject = React.lazy(() => import("./components/CreateProject"));
 const TasksPage = React.lazy(() => import("./components/TasksPage"));
+const AddTask = React.lazy(() => import ('./components/AddTask'));
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -14,6 +15,7 @@ root.render(
                 <Route path="/projects" element={<ProjectList />} />
                 <Route path="/projects/new" element={<CreateProject />} />
                 <Route path="/projects/:projectId/tasks" element={<TasksPage />} />
+                <Route path="/projects/:projectId/tasks/new" element={<AddTask />} />
             </Routes>
         </Suspense>
     </Router>

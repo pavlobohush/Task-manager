@@ -6,10 +6,8 @@ import com.store.onlinestore.service.ProjectService;
 import com.store.onlinestore.service.UserService;
 import com.store.onlinestore.service.TaskService;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 
 
 @Controller
@@ -41,22 +39,4 @@ public class PageController {
     public String serveCreateTaskReactPage(@PathVariable Long projectId) {
         return "forward:/projects.html";
     }
-
-    @PostMapping
-    public String createProject(@ModelAttribute Project project) {
-        Long currentUserId = userService.getCurrentUserId();
-        project.setUser(userService.findUserById(currentUserId));
-        projectService.createProject(project);
-        return "redirect:/projects";
-    }
-
-    @PostMapping("/{projectName}/tasks")
-    public String createTask(@PathVariable String projectName, @ModelAttribute Task task) {
-        Long currentUserId = userService.getCurrentUserId();
-        Project project = projectService.getProjectByNameAndUserId(projectName, currentUserId);
-        taskService.createTask(task, project.getId());
-        return "redirect:/projects/" + projectName + "/tasks";
-    }
-
-
 }

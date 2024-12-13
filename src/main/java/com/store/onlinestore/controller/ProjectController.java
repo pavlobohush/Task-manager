@@ -2,6 +2,7 @@ package com.store.onlinestore.controller;
 
 import com.store.onlinestore.model.Project;
 import com.store.onlinestore.service.ProjectService;
+import com.store.onlinestore.service.UserService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -10,10 +11,13 @@ import java.util.Map;
 @RestController
 @RequestMapping("/api/projects")
 public class ProjectController {
-    private final ProjectService projectService;
 
-    public ProjectController(ProjectService projectService) {
+    private final ProjectService projectService;
+    private final UserService userService;
+
+    public ProjectController(ProjectService projectService, UserService userService) {
         this.projectService = projectService;
+        this.userService = userService;
     }
 
     @GetMapping
@@ -28,12 +32,14 @@ public class ProjectController {
 
     @PostMapping
     public Project createProject(@RequestBody Project project) {
+        Long currentUserId = userService.getCurrentUserId();
+        project.setUser(userService.findUserById(currentUserId));
         return projectService.createProject(project);
     }
 
-    @PutMapping("/{id}")
-    public Project updateProject(@PathVariable Long id, @RequestBody Project projectDetails) {
-        return projectService.updateProject(id, projectDetails);
+    @PutMapping("/{projectId}")
+    public Project updateProject(@PathVariable Long projectId, @RequestBody Project projectDetails) {
+        return projectService.updateProject(projectId, projectDetails);
     }
 
     @DeleteMapping("/{id}")
