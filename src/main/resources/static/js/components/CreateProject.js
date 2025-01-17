@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import apiClient from "./apiClient.js";
 import "../../css/CreateProject.css";
 
 export default function CreateProject() {
@@ -17,23 +18,19 @@ export default function CreateProject() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await fetch("/api/projects", {
-                method: "POST",
+            const token = localStorage.getItem("token"); // Получаем токен из localStorage
+            await apiClient.post("/projects", formData, {
                 headers: {
-                    "Content-Type": "application/json",
+                    Authorization: `Bearer ${token}`, // Добавляем токен в заголовок
                 },
-                body: JSON.stringify(formData),
             });
-
-            if (response.ok) {
-                navigate("/projects");
-            } else {
-                console.error("Failed to create project");
-            }
+            navigate("/projects");
         } catch (error) {
-            console.error("Error:", error);
+            console.error("Error creating project:", error);
+            alert("Failed to create project. Please try again.");
         }
     };
+
 
     return (
         <div className="create-project-container">

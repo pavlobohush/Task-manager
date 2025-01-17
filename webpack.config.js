@@ -1,12 +1,11 @@
-const path = require('path');
+import path from 'path';
 
-module.exports = {
+export default {
     mode: 'development',
-    devtool: 'cheap-module-source-map',
     entry: './src/main/resources/static/js/index.js',
     output: {
         filename: 'bundle.js',
-        path: path.resolve(__dirname, 'src/main/resources/static/js'),
+        path: path.resolve('src/main/resources/static/js'),
     },
     module: {
         rules: [

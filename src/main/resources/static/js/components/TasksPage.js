@@ -1,31 +1,42 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
+import { DragDropContext, Droppable, Draggable } from "@hello-pangea/dnd";
+import apiClient from "./apiClient.js";
 import "../../css/TasksPage.css";
 
 export default function TasksPage() {
-    const { projectId } = useParams(); // Получаем projectId из URL
+    const { projectId } = useParams();
     const [tasks, setTasks] = useState([]);
     const [project, setProject] = useState({});
 
     useEffect(() => {
-        fetch(`/api/projects/${projectId}`)
-            .then((res) => res.json())
-            .then((data) => setProject(data))
+        const token = localStorage.getItem("token");
+
+        apiClient
+            .get(`/projects/${projectId}`, {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            })
+            .then((response) => setProject(response.data))
             .catch((error) => console.error("Error fetching project:", error));
 
-        fetch(`/api/tasks/project/${projectId}`)
-            .then((res) => res.json())
-            .then((data) => setTasks(data))
+        apiClient
+            .get(`/tasks/project/${projectId}`, {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            })
+            .then((response) => setTasks(response.data))
             .catch((error) => console.error("Error fetching tasks:", error));
     }, [projectId]);
 
+
+    // Handle drag and drop
     const onDragEnd = (result) => {
         const { source, destination, draggableId } = result;
 
-        if (!destination) return; // Если перемещение произошло за пределы допустимых зон, ничего не делаем.
-
-        // Проверка на попытку переместить в ту же колонку
+        if (!destination) return;
         if (
             source.droppableId === destination.droppableId &&
             source.index === destination.index
@@ -33,39 +44,43 @@ export default function TasksPage() {
             return;
         }
 
-        // Получаем текущую задачу
         const task = tasks.find((t) => t.id.toString() === draggableId);
+        if (!task) return;
 
-        if (!task) return; // Если задача не найдена, ничего не делаем.
-
-        // Ограничиваем перемещение: NOT_STARTED → IN_PROGRESS и IN_PROGRESS → COMPLETED
+        // Define valid transitions for task statuses
         const validTransitions = {
             NOT_STARTED: ["IN_PROGRESS"],
             IN_PROGRESS: ["COMPLETED"],
         };
 
         const allowedDestinations = validTransitions[task.status] || [];
-
         if (!allowedDestinations.includes(destination.droppableId)) {
-            return; // Если перемещение в недопустимый статус, ничего не делаем.
+            return;
         }
 
-        // Обновляем локальное состояние
         const updatedTasks = tasks.map((t) =>
             t.id === task.id ? { ...t, status: destination.droppableId } : t
         );
         setTasks(updatedTasks);
 
-        // Обновляем статус задачи на сервере
-        fetch(`/api/tasks/${task.id}`, {
-            method: "PUT",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({ ...task, status: destination.droppableId }),
-        }).catch((error) => console.error("Error updating task:", error));
+        // Update task status on the server
+        apiClient
+            .put(
+                `/tasks/${task.id}`,
+                {
+                    ...task,
+                    status: destination.droppableId,
+                },
+                {
+                    headers: {
+                        Authorization: `Bearer ${localStorage.getItem("token")}`,
+                    },
+                }
+            )
+            .catch((error) => console.error("Error updating task:", error));
     };
 
+    // Filter tasks by status
     const filteredTasks = {
         NOT_STARTED: tasks.filter((task) => task.status === "NOT_STARTED"),
         IN_PROGRESS: tasks.filter((task) => task.status === "IN_PROGRESS"),

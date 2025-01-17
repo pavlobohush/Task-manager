@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import ProjectCard from './ProjectCard';
+import { useNavigate } from 'react-router-dom';
+import ProjectCard from './ProjectCard.js';
+import apiClient from './apiClient.js';
 import '../../css/ProjectList.css';
 
 function ProjectColumn({ title, projects, emptyMessage, onCreate }) {
@@ -28,27 +30,30 @@ export default function ProjectList() {
     const [yourProjects, setYourProjects] = useState([]);
     const [otherProjects, setOtherProjects] = useState([]);
     const [error, setError] = useState(null);
+    const navigate = useNavigate();
 
     useEffect(() => {
-        fetch('/api/projects')
-            .then((res) => {
-                if (!res.ok) {
-                    throw new Error("Failed to fetch projects");
-                }
-                return res.json();
+        const token = localStorage.getItem("token"); // Получаем токен из localStorage
+        apiClient
+            .get('/projects', {
+                headers: {
+                    Authorization: `Bearer ${token}`, // Добавляем токен в заголовок
+                },
             })
-            .then((data) => {
+            .then((response) => {
+                const data = response.data;
                 setYourProjects(data.createdProjects || []);
                 setOtherProjects(data.joinedProjects || []);
             })
             .catch((error) => {
-                console.error("Error fetching projects:", error);
-                setError("Failed to load projects. Please try again later.");
+                console.error('Error fetching projects:', error);
+                setError('Failed to load projects. Please try again later.');
             });
     }, []);
 
+
     const handleCreateProject = () => {
-        window.location.href = '/projects/new';
+        navigate('/projects/new');
     };
 
     return (

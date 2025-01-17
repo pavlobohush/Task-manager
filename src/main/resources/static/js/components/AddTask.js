@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import apiClient from "./apiClient.js";
 import "../../css/AddTask.css";
 
 export default function AddTask() {
@@ -22,30 +23,31 @@ export default function AddTask() {
         }));
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-
-        fetch(`/api/tasks`, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({ ...formData, project: { id: projectId } }),
-        })
-            .then((res) => {
-                if (!res.ok) {
-                    throw new Error("Failed to create task");
+        try {
+            const token = localStorage.getItem("token");
+            await apiClient.post(
+                "/tasks",
+                {
+                    ...formData,
+                    project: { id: projectId },
+                },
+                {
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                    },
                 }
-                return res.json();
-            })
-            .then(() => {
-                navigate(`/projects/${projectId}/tasks`);
-            })
-            .catch((err) => {
-                console.error(err);
-                setError("Error creating task. Please try again.");
-            });
+            );
+
+            navigate(`/projects/${projectId}/tasks`);
+        } catch (err) {
+            console.error("Error creating task:", err.response || err);
+            setError(err.response?.data?.message || "Error creating task. Please try again.");
+        }
     };
+
+
 
     return (
         <div className="add-task-page">

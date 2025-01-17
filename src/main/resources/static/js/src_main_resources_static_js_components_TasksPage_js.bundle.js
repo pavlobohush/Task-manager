@@ -13,9 +13,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/development/chunk-D52XG6IA.mjs");
-/* harmony import */ var react_beautiful_dnd__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-beautiful-dnd */ "./node_modules/react-beautiful-dnd/dist/react-beautiful-dnd.esm.js");
-/* harmony import */ var _css_TasksPage_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../css/TasksPage.css */ "./src/main/resources/static/css/TasksPage.css");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/development/chunk-D52XG6IA.mjs");
+/* harmony import */ var react_beautiful_dnd__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-beautiful-dnd */ "./node_modules/react-beautiful-dnd/dist/react-beautiful-dnd.esm.js");
+/* harmony import */ var _apiClient__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./apiClient */ "./src/main/resources/static/js/components/apiClient.js");
+/* harmony import */ var _css_TasksPage_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../css/TasksPage.css */ "./src/main/resources/static/css/TasksPage.css");
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
 function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
 function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
@@ -32,10 +33,11 @@ function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
 
 
 
+ // Import the configured Axios instance
 
 function TasksPage() {
-  var _useParams = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_2__.useParams)(),
-    projectId = _useParams.projectId; // Получаем projectId из URL
+  var _useParams = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_3__.useParams)(),
+    projectId = _useParams.projectId;
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
     _useState2 = _slicedToArray(_useState, 2),
     tasks = _useState2[0],
@@ -45,49 +47,50 @@ function TasksPage() {
     project = _useState4[0],
     setProject = _useState4[1];
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    fetch("/api/projects/".concat(projectId)).then(function (res) {
-      return res.json();
-    }).then(function (data) {
-      return setProject(data);
+    var token = localStorage.getItem("token");
+    _apiClient__WEBPACK_IMPORTED_MODULE_1__["default"].get("/projects/".concat(projectId), {
+      headers: {
+        Authorization: "Bearer ".concat(token)
+      }
+    }).then(function (response) {
+      return setProject(response.data);
     })["catch"](function (error) {
       return console.error("Error fetching project:", error);
     });
-    fetch("/api/tasks/project/".concat(projectId)).then(function (res) {
-      return res.json();
-    }).then(function (data) {
-      return setTasks(data);
+    _apiClient__WEBPACK_IMPORTED_MODULE_1__["default"].get("/tasks/project/".concat(projectId), {
+      headers: {
+        Authorization: "Bearer ".concat(token)
+      }
+    }).then(function (response) {
+      return setTasks(response.data);
     })["catch"](function (error) {
       return console.error("Error fetching tasks:", error);
     });
   }, [projectId]);
+
+  // Handle drag and drop
   var onDragEnd = function onDragEnd(result) {
     var source = result.source,
       destination = result.destination,
       draggableId = result.draggableId;
-    if (!destination) return; // Если перемещение произошло за пределы допустимых зон, ничего не делаем.
-
-    // Проверка на попытку переместить в ту же колонку
+    if (!destination) return;
     if (source.droppableId === destination.droppableId && source.index === destination.index) {
       return;
     }
-
-    // Получаем текущую задачу
     var task = tasks.find(function (t) {
       return t.id.toString() === draggableId;
     });
-    if (!task) return; // Если задача не найдена, ничего не делаем.
+    if (!task) return;
 
-    // Ограничиваем перемещение: NOT_STARTED → IN_PROGRESS и IN_PROGRESS → COMPLETED
+    // Define valid transitions for task statuses
     var validTransitions = {
       NOT_STARTED: ["IN_PROGRESS"],
       IN_PROGRESS: ["COMPLETED"]
     };
     var allowedDestinations = validTransitions[task.status] || [];
     if (!allowedDestinations.includes(destination.droppableId)) {
-      return; // Если перемещение в недопустимый статус, ничего не делаем.
+      return;
     }
-
-    // Обновляем локальное состояние
     var updatedTasks = tasks.map(function (t) {
       return t.id === task.id ? _objectSpread(_objectSpread({}, t), {}, {
         status: destination.droppableId
@@ -95,19 +98,19 @@ function TasksPage() {
     });
     setTasks(updatedTasks);
 
-    // Обновляем статус задачи на сервере
-    fetch("/api/tasks/".concat(task.id), {
-      method: "PUT",
+    // Update task status on the server
+    _apiClient__WEBPACK_IMPORTED_MODULE_1__["default"].put("/tasks/".concat(task.id), _objectSpread(_objectSpread({}, task), {}, {
+      status: destination.droppableId
+    }), {
       headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(_objectSpread(_objectSpread({}, task), {}, {
-        status: destination.droppableId
-      }))
+        Authorization: "Bearer ".concat(localStorage.getItem("token"))
+      }
     })["catch"](function (error) {
       return console.error("Error updating task:", error);
     });
   };
+
+  // Filter tasks by status
   var filteredTasks = {
     NOT_STARTED: tasks.filter(function (task) {
       return task.status === "NOT_STARTED";
@@ -121,12 +124,12 @@ function TasksPage() {
   };
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "tasks-page"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h1", null, "Tasks for project: ", project.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_beautiful_dnd__WEBPACK_IMPORTED_MODULE_3__.DragDropContext, {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h1", null, "Tasks for project: ", project.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_beautiful_dnd__WEBPACK_IMPORTED_MODULE_4__.DragDropContext, {
     onDragEnd: onDragEnd
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "tasks-container"
   }, ["NOT_STARTED", "IN_PROGRESS", "COMPLETED"].map(function (status) {
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_beautiful_dnd__WEBPACK_IMPORTED_MODULE_3__.Droppable, {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_beautiful_dnd__WEBPACK_IMPORTED_MODULE_4__.Droppable, {
       droppableId: status,
       key: status
     }, function (provided) {
@@ -134,7 +137,7 @@ function TasksPage() {
         className: "tasks-column",
         ref: provided.innerRef
       }, provided.droppableProps), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h2", null, status.replace("_", " "), " (", filteredTasks[status].length, ")"), filteredTasks[status].length > 0 ? filteredTasks[status].map(function (task, index) {
-        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_beautiful_dnd__WEBPACK_IMPORTED_MODULE_3__.Draggable, {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_beautiful_dnd__WEBPACK_IMPORTED_MODULE_4__.Draggable, {
           key: task.id,
           draggableId: task.id.toString(),
           index: index

@@ -1,9 +1,21 @@
 footer {
+    background-color: #f8f9fa;
     text-align: center;
-    padding: 10px;
-    background-color: #333;
-    color: white;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
+    padding: 1rem 0;
+    font-size: 0.9rem;
+    color: #6c757d;
+}
+
+footer .footer-content nav {
+    margin-top: 0.5rem;
+}
+
+footer .footer-content nav a {
+    margin: 0 0.5rem;
+    color: #007bff;
+    text-decoration: none;
+}
+
+footer .footer-content nav a:hover {
+    text-decoration: underline;
 }
