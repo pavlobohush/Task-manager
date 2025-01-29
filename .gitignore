@@ -29,6 +29,7 @@ hs_err_pid*
 out/
 artifacts/
 target/
+idea/
 
 # Maven
 pom.xml.tag
@@ -55,3 +56,27 @@ bin/
 # OS-specific files
 .DS_Store
 Thumbs.db
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# React build output
+dist/
+
+*.cache
+
+
+# Temporary files
+*.tmp
+*.temp
+
+# IDEs/Editors
+*.swp
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
