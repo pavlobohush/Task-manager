@@ -33,24 +33,24 @@ export default function ProjectList() {
     const navigate = useNavigate();
 
     useEffect(() => {
-        const token = localStorage.getItem("token"); // Получаем токен из localStorage
-        apiClient
-            .get('/projects', {
-                headers: {
-                    Authorization: `Bearer ${token}`, // Добавляем токен в заголовок
-                },
-            })
-            .then((response) => {
-                const data = response.data;
-                setYourProjects(data.createdProjects || []);
-                setOtherProjects(data.joinedProjects || []);
-            })
-            .catch((error) => {
-                console.error('Error fetching projects:', error);
-                setError('Failed to load projects. Please try again later.');
-            });
+        const fetchProjects = () => {
+            const token = localStorage.getItem("token");
+            apiClient
+                .get('/projects', {
+                    headers: { Authorization: `Bearer ${token}` },
+                })
+                .then((response) => {
+                    console.log('Fetched projects:', response.data);
+                    setYourProjects(response.data.createdProjects || []);
+                    setOtherProjects(response.data.joinedProjects || []);
+                })
+                .catch((error) => {
+                    console.error('Error fetching projects:', error.response?.data || error.message);
+                    setError('Unable to load projects. Please try again.');
+                });
+        };
+        fetchProjects();
     }, []);
-
 
     const handleCreateProject = () => {
         navigate('/projects/new');

@@ -8,6 +8,8 @@ export default function TasksPage() {
     const { projectId } = useParams();
     const [tasks, setTasks] = useState([]);
     const [project, setProject] = useState({});
+    const [showAddUser, setShowAddUser] = useState(false);
+    const [userId, setUserId] = useState('');
 
     useEffect(() => {
         const token = localStorage.getItem("token");
@@ -31,6 +33,29 @@ export default function TasksPage() {
             .catch((error) => console.error("Error fetching tasks:", error));
     }, [projectId]);
 
+    const handleAddUser = async () => {
+        try {
+            await apiClient.post(
+                `/projects/${projectId}/add-user`,
+                { userId: Number(userId) },
+                { headers: { Authorization: `Bearer ${localStorage.getItem("token")}` } }
+            );
+
+            // Принудительное обновление данных
+            const updatedProject = await apiClient.get(`/projects/${projectId}`);
+            setProject(updatedProject.data);
+
+            const projectsResponse = await apiClient.get('/projects', {
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+            });
+
+            setShowAddUser(false);
+            setUserId('');
+        } catch (error) {
+            console.error('Error adding user:', error);
+            alert('Error: ' + (error.response?.data?.message || 'Failed to add user'));
+        }
+    };
 
     // Handle drag and drop
     const onDragEnd = (result) => {
@@ -142,6 +167,27 @@ export default function TasksPage() {
             >
                 Add Task
             </a>
+            <div className="add-user-section">
+                <button
+                    onClick={() => setShowAddUser(true)}
+                    className="btn btn-primary add-user-btn"
+                >
+                    Add User to Project
+                </button>
+
+                {showAddUser && (
+                    <div className="add-user-modal">
+                        <input
+                            type="number"
+                            placeholder="Enter User ID"
+                            value={userId}
+                            onChange={(e) => setUserId(e.target.value)}
+                        />
+                        <button onClick={handleAddUser}>Add</button>
+                        <button onClick={() => setShowAddUser(false)}>Cancel</button>
+                    </div>
+                )}
+            </div>
         </div>
     );
 }

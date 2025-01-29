@@ -1,9 +1,12 @@
 package com.store.onlinestore.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Data;
 import jakarta.persistence.*;
+
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -35,5 +38,11 @@ public class Project {
             joinColumns = @JoinColumn(name = "project_id"),
             inverseJoinColumns = @JoinColumn(name = "user_id")
     )
-    private List<User> participants;
+    @JsonIgnore
+    private List<User> participants = new ArrayList<>();
+
+    public void addParticipant(User user) {
+        participants.add(user);
+        user.getJoinedProjects().add(this);
+    }
 }

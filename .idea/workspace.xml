@@ -5,41 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="51625606-7dfa-442a-814e-80bf89a0450f" name="Changes" comment="Refactored tasks and projects handling:&#10;- Implemented React components for tasks and projects pages.&#10;- Adjusted filtering logic for tasks by status (NOT_STARTED, IN_PROGRESS, COMPLETED).&#10;- Fixed routing and ensured tasks display correctly based on project ID or name.&#10;- Improved structure and error handling in tasks and project lists.">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/store/onlinestore/config/PasswordEncoderConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/store/onlinestore/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/store/onlinestore/config/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/store/onlinestore/controller/PageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/store/onlinestore/controller/PageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/store/onlinestore/service/CustomUserDetailsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/store/onlinestore/service/CustomUserDetailsService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/Footer.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/Footer.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/Header.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/Header.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/5.bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/5.bundle.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/585.bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/585.bundle.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/61.bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/61.bundle.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/92.bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/92.bundle.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/bundle.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/bundle.js.LICENSE.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/bundle.js.LICENSE.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/bundle.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/bundle.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/components/AddTask.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/components/AddTask.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/components/CreateProject.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/components/CreateProject.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/components/Footer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/components/Footer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/components/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/components/Header.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/components/ProjectCard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/components/ProjectCard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/store/onlinestore/controller/ProjectController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/store/onlinestore/controller/ProjectController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/store/onlinestore/model/Project.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/store/onlinestore/model/Project.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/store/onlinestore/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/store/onlinestore/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/store/onlinestore/service/ProjectService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/store/onlinestore/service/ProjectService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/TasksPage.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/TasksPage.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/166.bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/166.bundle.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/468.bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/468.bundle.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/components/ProjectList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/components/ProjectList.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/components/TasksPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/components/TasksPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/src_main_resources_static_js_components_AddTask_js.bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/src_main_resources_static_js_components_AddTask_js.bundle.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/src_main_resources_static_js_components_AddTask_js.bundle.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/src_main_resources_static_js_components_AddTask_js.bundle.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/src_main_resources_static_js_components_CreateProject_js.bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/src_main_resources_static_js_components_CreateProject_js.bundle.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/src_main_resources_static_js_components_CreateProject_js.bundle.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/src_main_resources_static_js_components_CreateProject_js.bundle.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/src_main_resources_static_js_components_ProjectList_js.bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/src_main_resources_static_js_components_ProjectList_js.bundle.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/src_main_resources_static_js_components_ProjectList_js.bundle.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/src_main_resources_static_js_components_ProjectList_js.bundle.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/src_main_resources_static_js_components_TasksPage_js.bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/src_main_resources_static_js_components_TasksPage_js.bundle.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/src_main_resources_static_js_components_TasksPage_js.bundle.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/src_main_resources_static_js_components_TasksPage_js.bundle.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,38 +62,38 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
-    "Application.Main.executor": "Run",
-    "Application.com.store.onlinestore.Main.executor": "Run",
-    "HTTP Request.All in generated-requests.executor": "Run",
-    "HTTP Request.generated-requests | #2.executor": "Run",
-    "HTTP Request.generated-requests | #3.executor": "Run",
-    "HTTP Request.generated-requests | #4.executor": "Run",
-    "JUnit.com.store.onlinestore in Online-Store.executor": "Run",
-    "Maven.online-store [clean].executor": "Run",
-    "Maven.online-store [test].executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "develop",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/bougy/IdeaProjects/Online-Store/src/main/resources/templates/create_project.html",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "CodeWithMe",
-    "ts.external.directory.path": "C:\\Users\\bougy\\AppData\\Local\\Programs\\IntelliJ IDEA Ultimate 2024.3\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external",
-    "two.files.diff.last.used.file": "C:/Users/bougy/IdeaProjects/Online-Store/src/main/resources/templates/create_project.html",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_MARK_IGNORED_FILES_AS_EXCLUDED&quot;: &quot;true&quot;,
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Application.com.store.onlinestore.Main.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.All in generated-requests.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.generated-requests | #2.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.generated-requests | #3.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.generated-requests | #4.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.com.store.onlinestore in Online-Store.executor&quot;: &quot;Run&quot;,
+    &quot;Maven.online-store [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.online-store [test].executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;develop&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/bougy/IdeaProjects/Online-Store/src/main/resources/templates/create_project.html&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;CodeWithMe&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\bougy\\AppData\\Local\\Programs\\IntelliJ IDEA Ultimate 2024.3\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external&quot;,
+    &quot;two.files.diff.last.used.file&quot;: &quot;C:/Users/bougy/IdeaProjects/Online-Store/src/main/resources/templates/create_project.html&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.store.onlinestore.model" />
@@ -173,8 +148,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-fdfe4dae3a2d-intellij.indexing.shared.core-IU-243.22562.218" />
-        <option value="bundled-js-predefined-d6986cc7102b-deb605915726-JavaScript-IU-243.22562.218" />
+        <option value="bundled-jdk-9823dce3aa75-125ca727e0f0-intellij.indexing.shared.core-IU-243.23654.153" />
+        <option value="bundled-js-predefined-d6986cc7102b-822845ee3bb5-JavaScript-IU-243.23654.153" />
       </set>
     </attachedChunks>
   </component>

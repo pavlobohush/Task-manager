@@ -3,6 +3,8 @@ package com.store.onlinestore.model;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Data;
 import jakarta.persistence.*;
+
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -24,12 +26,17 @@ public class User {
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonManagedReference("user-projects")
-    private List<Project> projects;
+    private List<Project> projects = new ArrayList<>();
 
     @ManyToMany(mappedBy = "participants")
-    private List<Project> joinedProjects;
+    private List<Project> joinedProjects = new ArrayList<>();
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonManagedReference("user-tasks")
     private List<Task> tasks;
+
+    public void joinProject(Project project) {
+        joinedProjects.add(project);
+        project.getParticipants().add(this);
+    }
 }

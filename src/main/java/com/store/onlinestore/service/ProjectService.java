@@ -1,9 +1,12 @@
 package com.store.onlinestore.service;
 
 import com.store.onlinestore.model.Project;
+import com.store.onlinestore.model.User;
 import com.store.onlinestore.repository.ProjectRepository;
+import com.store.onlinestore.repository.UserRepository;
 import org.springframework.stereotype.Service;
 import jakarta.persistence.*;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.HashMap;
 import java.util.List;
@@ -13,10 +16,15 @@ import java.util.Map;
 public class ProjectService {
     private final ProjectRepository projectRepository;
     private final UserService userService;
+    private final UserRepository userRepository;
+    private final EntityManager entityManager;
 
-    public ProjectService(ProjectRepository projectRepository, UserService userService) {
+    public ProjectService(ProjectRepository projectRepository, UserService userService, UserRepository userRepository,
+                          EntityManager entityManager) {
         this.projectRepository = projectRepository;
         this.userService = userService;
+        this.userRepository = userRepository;
+        this.entityManager = entityManager;
     }
 
     public List<Project> getAllProjects() {
@@ -59,11 +67,35 @@ public class ProjectService {
 
     public Map<String, List<Project>> getProjectsForCurrentUser() {
         Long currentUserId = userService.getCurrentUserId();
+        System.out.println("Current user ID: " + currentUserId);
+
         List<Project> createdProjects = projectRepository.findByUserId(currentUserId);
+        System.out.println("Created projects: " + createdProjects);
+
         List<Project> joinedProjects = projectRepository.findJoinedProjectsByUserId(currentUserId);
+        System.out.println("Joined projects: " + joinedProjects);
+
         Map<String, List<Project>> result = new HashMap<>();
         result.put("createdProjects", createdProjects);
         result.put("joinedProjects", joinedProjects);
+
         return result;
+    }
+
+
+    @Transactional
+    public void addUserToProject(Long projectId, Long userId) {
+        Project project = projectRepository.findById(projectId)
+                .orElseThrow(() -> new RuntimeException("Project not found"));
+        User user = userRepository.findById(userId)
+                .orElseThrow(() -> new RuntimeException("User not found"));
+        if (project.getParticipants().contains(user)) {
+            throw new RuntimeException("User is already in the project");
+        }
+        project.addParticipant(user);
+        projectRepository.save(project);
+        userRepository.save(user);
+        entityManager.flush();
+        entityManager.clear();
     }
 }
