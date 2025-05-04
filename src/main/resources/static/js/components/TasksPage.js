@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { DragDropContext, Droppable, Draggable } from "@hello-pangea/dnd";
 import apiClient from "./apiClient.js";
 import "../../css/TasksPage.css";
 
 export default function TasksPage() {
     const { projectId } = useParams();
+    const navigate = useNavigate();
     const [tasks, setTasks] = useState([]);
     const [project, setProject] = useState({});
     const [showAddUser, setShowAddUser] = useState(false);
@@ -161,12 +163,12 @@ export default function TasksPage() {
                     ))}
                 </div>
             </DragDropContext>
-            <a
-                href={`/projects/${projectId}/tasks/new`}
+            <button
+                onClick={() => navigate(`/projects/${projectId}/tasks/new`)}
                 className="btn btn-success"
             >
                 Add Task
-            </a>
+            </button>
             <div className="add-user-section">
                 <button
                     onClick={() => setShowAddUser(true)}

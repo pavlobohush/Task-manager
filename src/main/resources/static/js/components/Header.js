@@ -1,5 +1,5 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import '../../css/Header.css';
 
 export default function Header() {
@@ -17,14 +17,14 @@ export default function Header() {
             <h1>Project Management</h1>
             <nav>
                 <ul>
-                    <li><a href="/">Home</a></li>
-                    {isLoggedIn && <li><a href="/projects">Projects</a></li>}
+                    <li><Link to="/">Home</Link></li>
+                    {isLoggedIn && <li><Link to="/projects">Projects</Link></li>}
                     {isLoggedIn ? (
                         <li>
                             <button onClick={handleLogout} className="logout-button">Logout</button>
                         </li>
                     ) : (
-                        <li><a href="/login">Login</a></li>
+                        <li><Link to="/login">Login</Link></li>
                     )}
                 </ul>
             </nav>

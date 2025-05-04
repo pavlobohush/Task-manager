@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import apiClient from "./apiClient.js";
 import "../../css/Auth.css";
 
@@ -56,7 +57,7 @@ export default function Register() {
                 <button type="submit">Register</button>
             </form>
             <p>
-                Already have an account? <a href="/login">Login here</a>
+                Already have an account? <Link to="/login">Login here</Link>
             </p>
         </div>
     );

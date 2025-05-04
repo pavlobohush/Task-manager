@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import apiClient from "./apiClient.js";
 import useAuth from "./useAuth.js";
 import "../../css/Auth.css";
@@ -64,7 +65,7 @@ export default function Login() {
                 <button type="submit">Login</button>
             </form>
             <p>
-                New user? <a href="/register">Register here</a>
+                New user? <Link to="/register">Register here</Link>
             </p>
         </div>
     );

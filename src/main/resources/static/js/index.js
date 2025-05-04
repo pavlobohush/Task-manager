@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-d
 import Login from "./components/Login.js";
 import Register from "./components/Register.js";
 import useAuth from "./components/useAuth.js";
+import Layout from "./components/Layout.js";
 
 const ProjectList = React.lazy(() => import("./components/ProjectList.js"));
 const CreateProject = React.lazy(() => import("./components/CreateProject.js"));
@@ -14,7 +15,7 @@ function AppRoutes() {
     const { isAuthenticated, isLoading } = useAuth();
 
     if (isLoading) {
-        return <div>Checking authentication...</div>; // Показывает загрузку, пока состояние не обновится
+        return <div>Checking authentication...</div>;
     }
 
     return (
@@ -22,23 +23,12 @@ function AppRoutes() {
             <Route path="/" element={<Navigate to="/login" />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
-            <Route
-                path="/projects"
-                element={isAuthenticated ? <ProjectList /> : <Navigate to="/login" />}
-            />
-            <Route
-                path="/projects/new"
-                element={isAuthenticated ? <CreateProject /> : <Navigate to="/login" />}
-            />
-            <Route
-                path="/projects/:projectId/tasks"
-                element={isAuthenticated ? <TasksPage /> : <Navigate to="/login" />}
-            />
-            <Route
-                path="/projects/:projectId/tasks/new"
-                element={isAuthenticated ? <AddTask /> : <Navigate to="/login" />}
-            />
-            <Route path="*" element={<div>404 - Page not found</div>} />
+            <Route element={<Layout />}>
+                <Route path="/projects" element={isAuthenticated ? <ProjectList /> : <Navigate to="/login" />} />
+                <Route path="/projects/new" element={isAuthenticated ? <CreateProject /> : <Navigate to="/login" />} />
+                <Route path="/projects/:projectId/tasks" element={isAuthenticated ? <TasksPage /> : <Navigate to="/login" />} />
+                <Route path="/projects/:projectId/tasks/new" element={isAuthenticated ? <AddTask /> : <Navigate to="/login" />} />
+            </Route>
         </Routes>
     );
 }
