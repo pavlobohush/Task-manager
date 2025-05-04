@@ -6,20 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="51625606-7dfa-442a-814e-80bf89a0450f" name="Changes" comment="Conflict resolved">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/162.bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/162.bundle.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/162.bundle.js.LICENSE.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/162.bundle.js.LICENSE.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/store/onlinestore/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/store/onlinestore/config/SecurityConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/166.bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/166.bundle.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/436.bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/436.bundle.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/436.bundle.js.LICENSE.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/436.bundle.js.LICENSE.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/458.bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/458.bundle.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/458.bundle.js.LICENSE.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/458.bundle.js.LICENSE.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/166.bundle.js.LICENSE.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/166.bundle.js.LICENSE.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/bundle.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/bundle.js.LICENSE.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/bundle.js.LICENSE.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/components/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/components/Header.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/components/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/components/Login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/components/Register.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/components/Register.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/components/TasksPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/components/TasksPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,6 +26,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="develop" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
@@ -43,12 +39,12 @@
     &quot;assignee&quot;: &quot;pavlobohush&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/pavlobohush/Task-manager.git",
-    "accountId": "aa773e45-41e7-4768-83f8-3028c0524fd0"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/pavlobohush/Task-manager.git&quot;,
+    &quot;accountId&quot;: &quot;aa773e45-41e7-4768-83f8-3028c0524fd0&quot;
   }
-}]]></component>
+}</component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
   </component>
@@ -78,7 +74,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "Spring Boot.Main.executor": "Run",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "develop",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "node.js.detected.package.eslint": "true",
